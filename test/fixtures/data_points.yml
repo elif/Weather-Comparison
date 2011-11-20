@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  temperature_1: 1
+  temperature_2: 1
+
+two:
+  temperature_1: 1
+  temperature_2: 1

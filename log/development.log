@@ -1,0 +1,729 @@
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (2.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateComparisons (20111117224112)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "comparisons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "location_1" varchar(255), "location_2" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111117224112')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("comparisons")
+
+
+Started GET "/" for 127.0.0.1 at 2011-11-17 17:44:23 -0500
+  Processing by ComparisonsController#index as HTML
+  [1m[36mComparison Load (0.5ms)[0m  [1mSELECT "comparisons".* FROM "comparisons"[0m
+Rendered comparisons/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 66ms (Views: 6.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comparisons/new" for 127.0.0.1 at 2011-11-17 17:44:33 -0500
+  Processing by ComparisonsController#new as HTML
+Rendered comparisons/_form.html.erb (120.2ms)
+Rendered comparisons/new.html.erb within layouts/application (123.8ms)
+Completed 200 OK in 139ms (Views: 128.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/comparisons" for 127.0.0.1 at 2011-11-17 17:44:42 -0500
+  Processing by ComparisonsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz74GGVqA+KJmIqIhhiE+0xplrv5OuOm2XB//auQ89w=", "comparison"=>{"location_1"=>"Atlanta, GA", "location_2"=>"San Francisco, CA"}, "commit"=>"Create Comparison"}
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "comparisons" ("location_1", "location_2", "created_at", "updated_at") VALUES ('Atlanta, GA', 'San Francisco, CA', '2011-11-17 22:44:42.727303', '2011-11-17 22:44:42.727303')[0m
+Redirected to http://localhost:3000/comparisons/1
+Completed 302 Found in 52ms
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 17:44:42 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mComparison Load (0.2ms)[0m  SELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1
+Rendered comparisons/show.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 28ms (Views: 18.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/comparisons" for 127.0.0.1 at 2011-11-17 17:44:46 -0500
+  Processing by ComparisonsController#index as HTML
+  [1m[36mComparison Load (0.4ms)[0m  [1mSELECT "comparisons".* FROM "comparisons"[0m
+Rendered comparisons/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 22ms (Views: 14.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 17:44:50 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mComparison Load (0.2ms)[0m  SELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1
+Rendered comparisons/show.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 51ms (Views: 42.2ms | ActiveRecord: 0.2ms)
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateComparisons (20111117224112)
+Migrating to CreateDataPoints (20111117225419)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateComparisons (20111117224112)
+Migrating to CreateDataPoints (20111117225501)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "data_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "temperature_1" integer, "temperature_2" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111117225501')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("comparisons")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("data_points")[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateComparisons (20111117224112)
+Migrating to CreateDataPoints (20111117225501)
+Migrating to AddComparisonIdToDataPoint (20111117225743)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "comparisons" ADD "comparison_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111117225743')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("comparisons")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("data_points")[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateComparisons (20111117224112)
+Migrating to CreateDataPoints (20111117225501)
+Migrating to AddComparisonIdToDataPoint (20111117225743)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("comparisons")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("data_points")[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to AddComparisonIdToDataPoint (20111117225743)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE TEMPORARY TABLE "altered_data_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "temperature_1" integer, "temperature_2" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("data_points")
+  [1m[36mSQL (0.4ms)[0m  [1mDROP TABLE "data_points"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "data_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "temperature_1" integer, "temperature_2" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_data_points")[0m
+  [1m[35mSQL (0.6ms)[0m  DROP TABLE "altered_data_points"
+  [1m[36mAREL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111117225743'[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("comparisons")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("data_points")
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateComparisons (20111117224112)
+Migrating to CreateDataPoints (20111117225501)
+Migrating to AddComparisonIdToDataPoint (20111117225743)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.1ms)[0m  [1mALTER TABLE "data_points" ADD "comparison_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111117225743')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("comparisons")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("data_points")[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to AddComparisonIdToDataPoint (20111117225743)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE TEMPORARY TABLE "altered_comparisons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "location_1" varchar(255), "location_2" varchar(255), "created_at" datetime, "updated_at" datetime, "comparison_id" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("comparisons")
+  [1m[36mSQL (0.4ms)[0m  [1mDROP TABLE "comparisons"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "comparisons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "location_1" varchar(255), "location_2" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_comparisons")[0m
+  [1m[35mSQL (0.6ms)[0m  DROP TABLE "altered_comparisons"
+  [1m[36mAREL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111117225743'[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("comparisons")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("data_points")
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateComparisons (20111117224112)
+Migrating to CreateDataPoints (20111117225501)
+Migrating to AddComparisonIdToDataPoint (20111117225743)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "data_points" ADD "comparison_id" integer[0m
+SQLite3::SQLException: duplicate column name: comparison_id: ALTER TABLE "data_points" ADD "comparison_id" integer
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateDataPoints (20111117225501)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mDROP TABLE "data_points"[0m
+  [1m[35mAREL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111117225501'
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("comparisons")
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateComparisons (20111117224112)
+Migrating to CreateDataPoints (20111117225501)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE TABLE "data_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "temperature_1" integer, "temperature_2" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111117225501')
+Migrating to AddComparisonIdToDataPoint (20111117225743)
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "data_points" ADD "comparison_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111117225743')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("comparisons")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("data_points")[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateComparisons (20111117224112)
+Migrating to CreateDataPoints (20111117225501)
+Migrating to AddComparisonIdToDataPoint (20111117225743)
+Migrating to AddConditionsToDataPoints (20111117231138)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "data_points" ADD "conditions_1" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  ALTER TABLE "data_points" ADD "conditions_2" varchar(255)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111117231138')[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("comparisons")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("data_points")
+  [1m[36mComparison Load (0.6ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mComparison Load (0.3ms)[0m  SELECT "comparisons".* FROM "comparisons" LIMIT 1
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[36mComparison Load (0.6ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mComparison Load (0.3ms)[0m  SELECT "comparisons".* FROM "comparisons" LIMIT 1
+  [1m[36mComparison Load (0.6ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mComparison Load (0.3ms)[0m  SELECT "comparisons".* FROM "comparisons" LIMIT 1
+
+
+Started GET "/comparisons/1/edit" for 127.0.0.1 at 2011-11-17 18:32:43 -0500
+  Processing by ComparisonsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mComparison Load (0.1ms)[0m  SELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1
+Rendered comparisons/_form.html.erb (69.0ms)
+Rendered comparisons/edit.html.erb within layouts/application (73.2ms)
+Completed 200 OK in 144ms (Views: 76.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/comparisons/1" for 127.0.0.1 at 2011-11-17 18:33:00 -0500
+  Processing by ComparisonsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lz74GGVqA+KJmIqIhhiE+0xplrv5OuOm2XB//auQ89w=", "comparison"=>{"location_1"=>"Atlanta+GA", "location_2"=>"San+Francisco+CA"}, "commit"=>"Update Comparison", "id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "comparisons" SET "location_1" = 'Atlanta+GA', "location_2" = 'San+Francisco+CA', "updated_at" = '2011-11-17 23:33:00.590563' WHERE "comparisons"."id" = 1
+Redirected to http://localhost:3000/comparisons/1
+Completed 302 Found in 59ms
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 18:33:00 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+Rendered comparisons/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 28ms (Views: 13.6ms | ActiveRecord: 0.9ms)
+  [1m[36mComparison Load (0.3ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mComparison Load (0.2ms)[0m  SELECT "comparisons".* FROM "comparisons" LIMIT 1
+  [1m[36mComparison Load (0.4ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mComparison Load (0.3ms)[0m  SELECT "comparisons".* FROM "comparisons" LIMIT 1
+  [1m[36mComparison Load (0.7ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mComparison Load (0.4ms)[0m  SELECT "comparisons".* FROM "comparisons" LIMIT 1
+  [1m[36mComparison Load (0.6ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mComparison Load (0.3ms)[0m  SELECT "comparisons".* FROM "comparisons" LIMIT 1
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[36mComparison Load (0.6ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "data_points" ("temperature_1", "temperature_2", "created_at", "updated_at", "comparison_id", "conditions_1", "conditions_2") VALUES (48, 58, '2011-11-17 23:38:01.078752', '2011-11-17 23:38:01.078752', 1, 'clear', 'mostly cloudy')[0m
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 18:38:36 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mComparison Load (0.1ms)[0m  SELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1
+Rendered comparisons/show.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 124ms (Views: 17.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 18:40:22 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.4ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (69.1ms)
+Completed 200 OK in 84ms (Views: 72.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 18:44:49 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+Rendered comparisons/show.html.erb within layouts/application (71.5ms)
+Completed   in 89ms
+
+ActionView::Template::Error (unknown encoding name - undecided):
+  app/controllers/comparisons_controller.rb:18:in `show'
+
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.6ms)
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.1ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 18:45:54 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mComparison Load (0.3ms)[0m  SELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1
+  [1m[36mDataPoint Load (0.3ms)[0m  [1mSELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)[0m
+Rendered comparisons/show.html.erb within layouts/application (66.8ms)
+Completed 200 OK in 84ms (Views: 71.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-11-17 21:03:50 -0500
+  Processing by ComparisonsController#index as HTML
+  [1m[36mComparison Load (1.0ms)[0m  [1mSELECT "comparisons".* FROM "comparisons"[0m
+Rendered comparisons/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 110ms (Views: 19.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/javascripts/jquery-min.js" for 127.0.0.1 at 2011-11-17 21:03:51 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery-min.js"):
+  
+
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:03:55 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (31.0ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (127.6ms)
+Completed 200 OK in 179ms (Views: 102.2ms | ActiveRecord: 31.7ms)
+
+
+Started GET "/javascripts/jquery-min.js" for 127.0.0.1 at 2011-11-17 21:03:56 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery-min.js"):
+  
+
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:22:56 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.8ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.7ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 93ms (Views: 44.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/javascripts/jquery-min.js" for 127.0.0.1 at 2011-11-17 21:22:57 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery-min.js"):
+  
+
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:22:58 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.2ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 70ms (Views: 58.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/javascripts/jquery-min.js" for 127.0.0.1 at 2011-11-17 21:22:58 -0500
+
+ActionController::RoutingError (No route matches "/javascripts/jquery-min.js"):
+  
+
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:25:08 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.1ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (55.0ms)
+Completed 200 OK in 70ms (Views: 58.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:28:49 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 79ms (Views: 66.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-11-17 21:43:28 -0500
+  Processing by ComparisonsController#index as HTML
+  [1m[36mComparison Load (25.0ms)[0m  [1mSELECT "comparisons".* FROM "comparisons"[0m
+Rendered comparisons/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 264ms (Views: 95.3ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:43:32 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mComparison Load (0.1ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (31.4ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (154.4ms)
+Completed   in 168ms
+
+ActionView::Template::Error (undefined method `chart_data' for #<Comparison:0x000001013188a8>):
+    27:       xAxis: { type: "datetime" },
+    28:       yAxis: { title: { text: "Degrees F" } },
+    29:       series: [{
+    30:         data: <%= @comparison.chart_data %>
+    31:       }]
+    32:     });
+    33:   });
+  app/views/comparisons/show.html.erb:30:in `_app_views_comparisons_show_html_erb__2077510625803674140_2157471680_3383470894546003110'
+  app/controllers/comparisons_controller.rb:18:in `show'
+
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (34.2ms)
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (44.0ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:45:42 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (25.3ms)
+Completed   in 39ms
+
+ActionView::Template::Error (undefined local variable or method `datapoints' for #<Comparison:0x00000101279578>):
+    27:       xAxis: { type: "datetime" },
+    28:       yAxis: { title: { text: "Degrees F" } },
+    29:       series: [{
+    30:         data: <%= @comparison.chart_data %>
+    31:       }]
+    32:     });
+    33:   });
+  app/models/comparison.rb:17:in `chart_data'
+  app/views/comparisons/show.html.erb:30:in `_app_views_comparisons_show_html_erb__2077510625803674140_2157136240_3383470894546003110'
+  app/controllers/comparisons_controller.rb:18:in `show'
+
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.4ms)
+Rendered /Users/eli/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (36.3ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:45:55 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 40ms (Views: 29.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:46:15 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 42ms (Views: 28.7ms | ActiveRecord: 0.4ms)
+  [1m[36mComparison Load (0.6ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (19.4ms)[0m  [1mINSERT INTO "data_points" ("temperature_1", "temperature_2", "created_at", "updated_at", "comparison_id", "conditions_1", "conditions_2") VALUES (43, 56, '2011-11-18 02:46:56.094048', '2011-11-18 02:46:56.094048', 1, 'clear', 'overcast')[0m
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:47:01 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 40ms (Views: 29.4ms | ActiveRecord: 0.5ms)
+  [1m[35mComparison Load (0.3ms)[0m  SELECT "comparisons".* FROM "comparisons" LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "data_points" ("temperature_1", "temperature_2", "created_at", "updated_at", "comparison_id", "conditions_1", "conditions_2") VALUES (43, 56, '2011-11-18 02:47:04.273292', '2011-11-18 02:47:04.273292', 1, 'clear', 'overcast')[0m
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:47:05 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.1ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 39ms (Views: 28.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:53:36 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 44ms (Views: 32.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:54:33 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.1ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 78ms (Views: 37.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:54:34 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 71ms (Views: 28.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:55:06 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 70ms (Views: 28.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:56:58 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.3ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 66ms (Views: 28.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:57:20 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (53.2ms)
+Completed 200 OK in 66ms (Views: 56.3ms | ActiveRecord: 0.4ms)
+  [1m[35mComparison Load (0.3ms)[0m  SELECT "comparisons".* FROM "comparisons" LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "data_points" ("temperature_1", "temperature_2", "created_at", "updated_at", "comparison_id", "conditions_1", "conditions_2") VALUES (43, 56, '2011-11-18 02:57:41.556914', '2011-11-18 02:57:41.556914', 1, 'clear', 'overcast')[0m
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-17 21:57:42 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (53.7ms)
+Completed 200 OK in 67ms (Views: 56.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-11-19 22:57:52 -0500
+  Processing by ComparisonsController#index as HTML
+  [1m[36mComparison Load (24.1ms)[0m  [1mSELECT "comparisons".* FROM "comparisons"[0m
+Rendered comparisons/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 249ms (Views: 104.0ms | ActiveRecord: 24.1ms)
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-19 22:57:56 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mComparison Load (0.1ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (30.8ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (118.5ms)
+Completed 200 OK in 152ms (Views: 111.4ms | ActiveRecord: 31.2ms)
+  [1m[36mComparison Load (0.6ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mComparison Load (0.3ms)[0m  SELECT "comparisons".* FROM "comparisons" LIMIT 1
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (21.9ms)[0m  [1mINSERT INTO "data_points" ("temperature_1", "temperature_2", "created_at", "updated_at", "comparison_id", "conditions_1", "conditions_2") VALUES (55, 51, '2011-11-20 03:59:35.070574', '2011-11-20 03:59:35.070574', 1, 'overcast', 'light rain')[0m
+
+
+Started GET "/comparisons/1" for 127.0.0.1 at 2011-11-19 22:59:36 -0500
+  Processing by ComparisonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComparison Load (0.2ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" WHERE "comparisons"."id" = 1 LIMIT 1[0m
+  [1m[35mDataPoint Load (0.3ms)[0m  SELECT "data_points".* FROM "data_points" WHERE ("data_points".comparison_id = 1)
+Rendered comparisons/show.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 70ms (Views: 30.8ms | ActiveRecord: 0.5ms)
+  [1m[36mComparison Load (0.5ms)[0m  [1mSELECT "comparisons".* FROM "comparisons" LIMIT 1[0m
+  [1m[36mComparison Load (0.5ms)[0m  [1mSELECT "comparisons".* FROM "comparisons"[0m
+  [1m[36mComparison Load (0.5ms)[0m  [1mSELECT "comparisons".* FROM "comparisons"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "data_points" ("temperature_1", "temperature_2", "created_at", "updated_at", "comparison_id", "conditions_1", "conditions_2") VALUES (55, 51, '2011-11-20 04:10:21.098084', '2011-11-20 04:10:21.098084', 1, 'overcast', 'light rain')[0m

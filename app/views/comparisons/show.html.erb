@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Location 1:</b>
+  <%= @comparison.location_1 %>
+</p>
+
+<p>
+  <b>Location 2:</b>
+  <%= @comparison.location_2 %>
+</p>
+
+<p>
+  <div id="comparison_chart">
+  <%= @comparison.historical_data %>
+</p>
+
+
+<%= link_to 'Edit', edit_comparison_path(@comparison) %> |
+<%= link_to 'Back', comparisons_path %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: { renderTo: "comparison_chart" },
+      title: { text: "Weather data:" }, 
+      xAxis: { type: "datetime" },
+      yAxis: { title: { text: "Degrees F" } },
+      series:  <%= @comparison.chart_data %>
+    });
+  });
+</script>
